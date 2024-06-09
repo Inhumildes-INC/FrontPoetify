@@ -1,8 +1,1 @@
-{
-  "/biblioteca/page": "app/biblioteca/page.js",
-  "/registro/page": "app/registro/page.js",
-  "/categorias/page": "app/categorias/page.js",
-  "/categorias/martes/page": "app/categorias/martes/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/home/page": "app/home/page.js"
-}
+{}
