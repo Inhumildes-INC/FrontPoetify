@@ -12,7 +12,6 @@ import jueves from 'app/app/categorias/jueves/jueves.png'
 import viernes from 'app/app/categorias/viernes/viernes.png'
 import sabado from 'app/app/categorias/sabado/sabado.png'
 import domingo from 'app/app/categorias/domingo/domingo.png'
-import { AuthProvider } from '../AuthContext'
 
 
 
@@ -27,7 +26,6 @@ const categorias = () => {
           content="Categorias - Remarkable Alarmed Albatross"
         />
       </Head>
-      <AuthProvider>
         <div className={styles.categoriasContainer1}>
 
           <div className={styles.Grid}>
@@ -100,7 +98,6 @@ const categorias = () => {
             </div>
           </div>
         </div>
-      </AuthProvider>
     </div>
   )
 }
