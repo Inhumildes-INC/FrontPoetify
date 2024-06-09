@@ -4,12 +4,25 @@ import styles from './Registro.module.sass'
 import React, { useState } from 'react'
 import Head from 'next/head'
 import {createUserWithEmailAndPassword} from "firebase/auth"
-import {auth} from 'app/app/firebase'
+import {auth, provider} from 'app/app/firebase'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-
+import Link from 'next/link'  
+import { useEffect } from 'react'
+import { signInWithPopup } from 'firebase/auth'
 
 function Register() {
+  const router = useRouter();
+
+  const handleRegister = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log('User Info:', result.user);
+      // Aquí puedes manejar el registro del usuario, como guardar datos adicionales en Firestore
+      router.push('/'); // Redirigir al home u otra página después de registrar
+    } catch (error) {
+      console.error('Error registering:', error);
+    }
+  };
   const [Credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -48,6 +61,10 @@ function Register() {
               onChange={changeUser}
             />
           </div>
+          <div>
+      <h1>Register</h1>
+      <button onClick={handleRegister}>Register with Google</button>
+    </div>
           <div className="center">
             <input
               name="password"
