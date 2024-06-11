@@ -5,13 +5,13 @@ import Link from 'next/link';
 import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image';
-import lunes from 'app/app/categorias/lunes/lunes.png'
-import martes from 'app/app/categorias/martes/martes.png'
-import miercoles from 'app/app/categorias/miercoles/miercoles.png'
-import jueves from 'app/app/categorias/jueves/jueves.png'
-import viernes from 'app/app/categorias/viernes/viernes.png'
-import sabado from 'app/app/categorias/sabado/sabado.png'
-import domingo from 'app/app/categorias/domingo/domingo.png'
+import lunes from './lunes.png'
+import martes from  './martes.png'
+import miercoles from './miercoles.png'
+import jueves from './jueves.png'
+import viernes from './viernes.png'
+import sabado from './sabado.png'
+import domingo from './domingo.png'
 
 
 

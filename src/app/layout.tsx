@@ -1,9 +1,7 @@
-import { Menu } from "app/components/menu/menu"
-import { Info } from "app/components/info/info"
-import styles from "./Layout.module.sass"
+import { Menu } from '../components/menu/menu'
+import { Info } from "../components/info/info"
+import styles from './Layaout.module.sass'
 import { Inter } from "next/font/google"
-
-
 
 const inter = Inter({ subsets: ["latin"] });
 
