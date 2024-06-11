@@ -1,6 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import  Style  from './Register.module.sass';
 
 function RegisterPage() {
   const {
@@ -35,94 +36,91 @@ function RegisterPage() {
   console.log(errors);
 
   return (
-    <div className="h-[calc(100vh-7rem)] flex justify-center items-center">
-      <form onSubmit={onSubmit} className="w-1/4">
-        <h1 className="text-slate-200 font-bold text-4xl mb-4">Register</h1>
+    <div className={Style.container}>
+      <form onSubmit={onSubmit} className={Style.formElement}>
+        <h1 className={Style.element}>Registrate</h1>
 
-        <label htmlFor="username" className="text-slate-500 mb-2 block text-sm">
-          Username:
+        <label htmlFor="username" className={Style.text}>
+          Nombre de usuario:
         </label>
         <input
           type="text"
           {...register("username", {
             required: {
               value: true,
-              message: "Username is required",
+              message: "tu nombre es necesario",
             },
           })}
-          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
-          placeholder="yourUser123"
+          className={Style.placeholder}
+          placeholder="belleza123"
         />
 
         {errors.username && (
-          <span className="text-red-500 text-xs">
+          <span className={Style.error}>
             {errors.username.message}
           </span>
         )}
 
-        <label htmlFor="email" className="text-slate-500 mb-2 block text-sm">
-          Email:
+        <label htmlFor="email" className={Style.text}>
+          Correo electrónico:
         </label>
         <input
           type="email"
           {...register("email", {
             required: {
               value: true,
-              message: "Email is required",
+              message: "el correo es necesario",
             },
           })}
-          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
-          placeholder="user@email.com"
+          className={Style.placeholder}
+          placeholder="tornillo@email.com"
         />
         {errors.email && (
-          <span className="text-red-500 text-xs">{errors.email.message}</span>
+          <span className={Style.error}>{errors.email.message}</span>
         )}
 
-        <label htmlFor="password" className="text-slate-500 mb-2 block text-sm">
-          Password:
+        <label htmlFor="password" className={Style.text}>
+          Contraseña:
         </label>
         <input
           type="password"
           {...register("password", {
             required: {
               value: true,
-              message: "Password is required",
+              message: "¿estás seguro?",
             },
           })}
-          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
+          className={Style.placeholder}
           placeholder="********"
         />
         {errors.password && (
-          <span className="text-red-500 text-sm">
+          <span className={Style.error}>
             {errors.password.message}
           </span>
         )}
 
-        <label
-          htmlFor="confirmPassword"
-          className="text-slate-500 mb-2 block text-sm"
-        >
-          Confirm Password:
+        <label htmlFor="confirmPassword" className={Style.text}>
+          Confirmar contraseña:
         </label>
         <input
           type="password"
           {...register("confirmPassword", {
             required: {
               value: true,
-              message: "Confirm Password is required",
+              message: "si está ahí es por algo",
             },
           })}
-          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
-          placeholder="********"
+          className={Style.placeholder}
+          placeholder="lo mismo de arriba"
         />
         {errors.confirmPassword && (
-          <span className="text-red-500 text-sm">
+          <span className={Style.error}>
             {errors.confirmPassword.message}
           </span>
         )}
 
-        <button className="w-full bg-blue-500 text-white p-3 rounded-lg mt-2">
-          Register
+        <button className={Style.button}>
+          Registrarme
         </button>
       </form>
     </div>
