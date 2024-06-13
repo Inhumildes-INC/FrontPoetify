@@ -11,6 +11,7 @@ async function ProfilePage() {
     const session = await getServerSession();
     console.log(session);
 
+
     return (
         <div className={style.container}>
             <div>
@@ -22,7 +23,7 @@ async function ProfilePage() {
                 alt="image profile"
                 width={200}
                 height={200} />
-                <ButtonBiblioteca/>
+                <ButtonBiblioteca email={session?.user?.email}/>
                 <ButtonUpdateData/>
                 <ButtonSignOut/>
                </div>

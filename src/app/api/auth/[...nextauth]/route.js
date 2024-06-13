@@ -9,7 +9,6 @@ const handler = NextAuth({
   providers: [
     CredentialsProvider({
 
-      
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "text", placeholder: "email@algo.com" },

@@ -1,7 +1,6 @@
 {
-  "/auth/register/page": "app/auth/register/page.js",
-  "/perfil/page": "app/perfil/page.js",
-  "/categorias/[categoria]/page": "app/categorias/[categoria]/page.js",
+  "/home/page": "app/home/page.js",
   "/dashboard/page": "app/dashboard/page.js",
+  "/perfil/page": "app/perfil/page.js",
   "/update/page": "app/update/page.js"
 }
