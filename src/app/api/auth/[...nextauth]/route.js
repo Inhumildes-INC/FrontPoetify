@@ -3,11 +3,13 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import GitHubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import db from '@/db'
-import bcrypt from 'bcrypt'
+
 
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
+
+      
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "text", placeholder: "email@algo.com" },
@@ -16,22 +18,23 @@ const handler = NextAuth({
       async authorize(credentials, req) {
         console.log(credentials)
 
-        const userFound = await db.user.findUnique({
+        const userFound = await db.usuario.findUnique({
           where: {
             email: credentials.email
           }
         })
         if(!userFound) return null
         console.log(userFound)
-        const matchPassword = await bcrypt.compare(credentials.password, userFound.password)
+        const matchPassword = await (credentials.password, userFound.password)
         if(!matchPassword) return null 
 
         return {
           id: userFound.id,
-          name: userFound.username,
+          nombre: userFound.nombre,
           email: userFound.email,
         }
       },
+
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,

@@ -13,11 +13,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model usuario {
   id Int @id @default(autoincrement())
   email String @unique
-  username String @unique
+  nombre String @unique
   password String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id_orientacion Int
+  id_ocupacion Int
+}
+
+model telefono{
+  id Int @id @default(autoincrement())
+  ntelefono1 Int @unique
+  ntelefono2 Int 
+}
+
+model ocupacion{
+  idocupacion Int @id @default(autoincrement())
+  nombre String 
+}
+
+model orientacion{
+  idgenero Int @id @default(autoincrement())
+  nombre String
 }

@@ -1,7 +1,8 @@
-"use client";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
-import  Style  from './Register.module.sass';
+"use client"
+import { useForm } from "react-hook-form"
+import { useRouter } from "next/navigation"
+import  Style  from './Register.module.sass'
+
 
 function RegisterPage() {
   const {
@@ -15,13 +16,15 @@ function RegisterPage() {
     if (data.password !== data.confirmPassword) {
       return alert("Passwords do not match");
     }
-
-    const res = await fetch("/api/auth/register", {
+    const res = await fetch("http://localhost:4000/usuario/agregar", {
+      
       method: "POST",
       body: JSON.stringify({
-        username: data.username,
+        nombre: data.nombre,
         email: data.email,
         password: data.password,
+      id_ocupacion: 2,
+      id_orientacion: 3 
       }),
       headers: {
         "Content-Type": "application/json",
@@ -40,12 +43,12 @@ function RegisterPage() {
       <form onSubmit={onSubmit} className={Style.formElement}>
         <h1 className={Style.element}>Registrate</h1>
 
-        <label htmlFor="username" className={Style.text}>
-          Nombre de usuario:
+        <label htmlFor="nombre" className={Style.text}>
+          Nombre de usuario:nombre
         </label>
         <input
           type="text"
-          {...register("username", {
+          {...register("nombre", {
             required: {
               value: true,
               message: "tu nombre es necesario",
@@ -55,9 +58,9 @@ function RegisterPage() {
           placeholder="belleza123"
         />
 
-        {errors.username && (
+        {errors.nombre && (
           <span className={Style.error}>
-            {errors.username.message}
+            {errors.nombre.message}
           </span>
         )}
 

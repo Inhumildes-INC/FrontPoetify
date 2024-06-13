@@ -9,10 +9,10 @@ async function DashboardPage() {
     console.log(session);
     return (
         <div>
-            <h1>bienvenido {session?.user?.name} </h1>
+            <h1>bienvenido {session?.usuario?.nombre} </h1>
             <p> {session?.user?.email} </p>
             <Image
-                src={session?.user?.image || ""}
+                src={session?.usuario?.image || ""}
                 alt="image profile"
                 width={200}
                 height={200} />
