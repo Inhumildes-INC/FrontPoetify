@@ -1,9 +1,9 @@
 import React from 'react'
 
-function HomePage() {
+function categoria() {
   return (
-    <div>HomePage</div>
+    <div>categoria</div>
   )
 }
 
-export default HomePage
+export default categoria

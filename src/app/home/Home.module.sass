@@ -1,19 +1,25 @@
-.home-container
+.Grid
+    display: grid
     width: 100%
+    grid-template-rows: 30vw 30vw
+
+.homeContainer
+    width: 70%
     display: flex
-    overflow: auto
-    min-height: 100vh
+    overflow: 60%
+    align-items: left
+    flex-direction: row
+    justify-content: center
+
+.homeContainer1
+    flex: 0 0 auto
+    width: 70%
+    display: flex
+    position: absolute
     align-items: center
     flex-direction: column
     justify-content: center
     background-color: #212121
-
-.homeContainer1
-    width: 100%
-    height: 1009px
-    display: flex
-    position: relative
-    align-items: flex-start
 
 .home-button
     left: 687px
@@ -38,6 +44,16 @@
     line-height: 1.75
 
 .homeText28
+    top: 32px
+    fill: #b3b3b3
+    left: 523px
+    color: rgb(179, 179, 179)
+    position: absolute
+    font-size: 50px
+    font-style: italic
+    font-weight: 700
+    
+.text
     top: 32px
     fill: #b3b3b3
     left: 523px

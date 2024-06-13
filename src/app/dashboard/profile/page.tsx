@@ -13,7 +13,7 @@ function ProfilePage() {
   return (
     <div><div><h1>Bienvenido</h1>
     <p>{session?.user?.name}</p>
-    <Image
+    <Image 
     src={session?.user?.image || ""}
     alt="image profile"
     width={200}

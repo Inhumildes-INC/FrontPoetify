@@ -1,62 +1,66 @@
-'use client';
+'use client'
 
-import styles from './Home.module.sass'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
-import contextAuthProvider from 'app/app/context/AuthContext'
+import Style from "./Home.module.sass"
 
-const Home = () => {
-  return (
-    
-    <div className={styles.homeContainer}>
-
-    <Head>
-      <title>Remarkable Alarmed Albatross</title>
-      <meta property="og:title" content="Remarkable Alarmed Albatross" />
-    </Head>
-    
-    <div className={styles.homeContainer1}>
-      <button type="button" className={styles.homButton}>
-        Volver a generar
-      </button>
-      <button type="button" className={styles.homeButton1}>
-        Guardar Poema
-      </button>
-      <span className={styles.homeText}>
-        <span>Bajo la luna, el susurro de un beso,</span>
-        <br></br>
-        <span>el latido de dos corazones,</span>
-        <br></br>
-        <span>dragones vuelan en mágicos cielos,</span>
-        <br></br>
-        <span>y los unicornios danzan en libertad.</span>
-        <br></br>
-        <span>La angustia es compañera del viaje,</span>
-        <br></br>
-        <span>la libertad, un peso que se siente,</span>
-        <br></br>
-        <span>la montaña se alza, majestuoso suelo,</span>
-        <br></br>
-        <span>y Afrodita su belleza tierna.</span>
-        <br></br>
-        <span>¿Quién soy en este vasto universo?</span>
-        <br></br>
-        <span>el viento canta una vieja canción,</span>
-        <br></br>
-        <span>las puertas del ayer están abiertas,</span>
-        <br></br>
-        <span>forjarán su nombre, verdaderos.</span>
-        <br></br>
-        <span>Épica historia de noble batalla,</span>
-        <br></br>
-        <span>iluminas con tu sabia broche.</span>
-      </span>
-      <span className={styles.homeText28}>VIERNES</span>
-    </div>
-  </div>
-  
-  )
-
+interface Respuesta {
+  error: boolean,
+  status: number,
+  body: Poema,
 }
 
-export default Home
+interface Poema {
+  poemaId: number,
+  poema: string,
+  sonetosUsados: number[]
+}
+
+const Categoria = (props: any) => {
+  const { categoria } = props.params
+  const [data, setData] = useState<Respuesta>()
+  const [loading, setLoading] = useState(true)
+
+  const fetchData = async () => {
+    const response = await fetch('http://localhost:4000/poemas/categoria/', { cache: 'no-cache' });
+
+    const jsonData = await response.json();
+    return jsonData;
+    
+    
+  };
+
+
+  useEffect(() => {
+    fetchData().then((responseData ) => {
+      setData(responseData)
+      setLoading(false)
+    })
+    
+  }, []);
+
+  if (loading) return (<h1>Cargando</h1>)
+
+  {
+    return (
+      <div className=''>
+        <Head>
+          <title>{ categoria }</title>
+          <meta
+          />
+        </Head>
+        <div className={Style.homeContainer}>
+        <div className={Style.homeContainer1}>
+            <span className={Style.homeText}>{data?.body.poema}</span>
+        </div>
+        <div >
+          <button>crear nuevo</button>
+          <button> guardar</button>
+        </div>
+      </div>
+      </div>
+    )
+  }
+
+}
+export default Categoria

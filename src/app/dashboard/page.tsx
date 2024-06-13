@@ -1,7 +1,7 @@
 import React from 'react'
-import { getServerSession } from 'next-auth';
-import Image from 'next/image';
-import ButtonSignOut from './ButtonSignOut';
+import { getServerSession } from 'next-auth'
+import Image from 'next/image'
+import ButtonSignOut from './ButtonSignOut'
 
 
 async function DashboardPage() {
@@ -17,7 +17,7 @@ async function DashboardPage() {
                 width={200}
                 height={200} />
                <ButtonSignOut/>
-        </div>
+        </div>   
     );
 
 }

@@ -1,6 +1,6 @@
 import { Menu } from '../components/menu/menu'
-import { Info } from "../components/info/info"
-import styles from './Layaout.module.sass'
+//import { Info } from "../components/info/info"
+import styles from './Layout.module.sass'
 import { Inter } from "next/font/google"
 
 const inter = Inter({ subsets: ["latin"] });
@@ -12,13 +12,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-        <body className={inter.className}>
+        <body>
           <div className={styles.Grid}>
             <Menu />
-            <div className={styles.Center}>
-              {children}
-            </div>
-            <Info />
+            {children}              
           </div>
         </body>
     </html>
