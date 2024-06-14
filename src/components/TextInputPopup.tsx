@@ -1,4 +1,3 @@
-// components/TextInputPopup.tsx
 import React, { useState } from 'react';
 
 interface TextInputPopupProps {

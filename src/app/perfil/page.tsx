@@ -15,10 +15,10 @@ async function ProfilePage() {
     return (
         <div className={style.container}>
             <div>
-            <h1>bienvenido {session?.user?.name} </h1>
-            <p> {session?.user?.email} </p>
+            <h1 className={style.text}>bienvenido {session?.user?.name} </h1>
+            <p className={style.text}> {session?.user?.email} </p>
             
-            <Image
+            <Image className={style.image}
                 src={session?.user?.image || fotoPerfil}
                 alt="image profile"
                 width={200}

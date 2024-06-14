@@ -12,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-        <body>
+        <body className={styles.fondo}>
           <div className={styles.Grid}>
             <Menu />
             {children}              

@@ -70,7 +70,7 @@ const categorias = () => {
               </Link>
             </div><div>
               <br />
-              <Link href="/categoria/viernes">
+              <Link href="/categorias/viernes">
                 <Image
                   src={viernes} alt="image" width={500} height={500} className={styles.Image} />
                 <button type="button" className={styles.Button}>

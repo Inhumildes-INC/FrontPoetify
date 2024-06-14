@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react'
 import Style from './page.module.sass'
 import { getServerSession } from 'next-auth'
-import TextInputPopup from '../components/TextInputPopup';
 
 interface Respuesta {
   error: boolean,
@@ -16,8 +15,6 @@ interface Poema {
   poema: string,
   sonetosUsados: number[]
 }
-
-
 
 const ButtonGuardarEnBiblioteca: React.FC = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -47,23 +44,6 @@ const ButtonGuardarEnBiblioteca: React.FC = () => {
     })
 
   }, []);
-
-  /*const fetchData2 = async () => {
-    const response = await fetch('http://localhost:4000/usuario/buscarNombre', { cache: 'no-cache', method: "POST",headers: {
-      'Content-Type': 'application/json'
-    },  body: JSON.stringify({"identificador": ""}) });
-
-    const jsonData = await response.json();
-    console.log(jsonData)
-    return jsonData;
-  };
-  
-  useEffect(() => {
-  fetchData2().then((responseData) => {
-    setNameUser(responseData)
-    setMessage(false)
-  })
-}, []); */
 
   const handleLikeClick = async () => {
     try {
@@ -105,7 +85,7 @@ const ButtonGuardarEnBiblioteca: React.FC = () => {
             body: JSON.stringify({ 
               "nombre": customField, 
               "id_poema": poemData?.body?.poemaId,
-            "id_biblioteca": "1" })
+            "id_biblioteca": "12" })
           });
     
           if (response.ok) {
@@ -119,30 +99,36 @@ const ButtonGuardarEnBiblioteca: React.FC = () => {
         } catch (error) {
           setMessage('Error de conexión al guardar el poema');
         }
+        window.location.href = 'http://localhost:3000/';
       };
       
   const handleNoClick = () => {
-    window.location.href = 'http://localhost:3000/'; // Recargar la página
+    window.location.href = 'http://localhost:3000/'; 
   };
 
   return (
-    <div>
-       <div className={Style.homeContainer1}>
-            <span className={Style.homeText}>{poemData?.body.poema}</span>
-        </div>
-      <button onClick={handleLikeClick}>Me Gusta</button>
-      
+    <div >
+      <div className={Style.homeContainer1}>
+        <span className={Style.homeText}>{poemData?.body.poema}</span>
+      </div>
+      <button className={Style.button} onClick={handleLikeClick}>Me Gusta</button>
+
       {showConfirmation && (
-        <div>
-          <p>¿Lo quieres guardar?</p>
-          <button onClick={handleYesClick}>Sí</button>
-          <button onClick={handleNoClick}>No</button>
-          <input
-            type="text"
-            value={customField}
-            onChange={(e) => setCustomField(e.target.value)}
-            placeholder="Ingrese un campo personalizado"
-          />
+        <div className={Style.popupOverlay}>
+          <div className={Style.popupContent}>
+            <p className={Style.homeText}>¿Lo quieres guardar?</p>
+            <br />
+            <input
+              type="text"
+              value={customField}
+              onChange={(e) => setCustomField(e.target.value)}
+              placeholder="Nombra tu poema"
+            />
+            <br />
+            <button onClick={handleYesClick}>Sí</button>
+            <br />
+            <button onClick={handleNoClick}>No</button>
+          </div>
         </div>
       )}
 

@@ -7,7 +7,7 @@ function ButtonUpdateData() {
   return (
     <Link href="/update">
 
-  <button> Actualizar Datos</button>
+  <button className={style.button}> Actualizar Datos</button>
     </Link>
   )
 }

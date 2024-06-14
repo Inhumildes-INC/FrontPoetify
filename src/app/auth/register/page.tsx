@@ -1,8 +1,7 @@
 "use client"
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
-import  Style  from './Register.module.sass'
-
+import Style from './Register.module.sass'
 
 function RegisterPage() {
   const {
@@ -17,14 +16,13 @@ function RegisterPage() {
       return alert("Passwords do not match");
     }
     const res = await fetch("http://localhost:4000/usuario/agregar", {
-      
       method: "POST",
       body: JSON.stringify({
         nombre: data.nombre,
         email: data.email,
         password: data.password,
-      id_ocupacion: 2,
-      id_orientacion: 3 
+        id_ocupacion: 2,
+        id_orientacion: 3
       }),
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +42,7 @@ function RegisterPage() {
         <h1 className={Style.element}>Registrate</h1>
 
         <label htmlFor="nombre" className={Style.text}>
-          Nombre de usuario:nombre
+          Nombre de usuario:
         </label>
         <input
           type="text"
@@ -57,7 +55,6 @@ function RegisterPage() {
           className={Style.placeholder}
           placeholder="belleza123"
         />
-
         {errors.nombre && (
           <span className={Style.error}>
             {errors.nombre.message}
@@ -81,6 +78,52 @@ function RegisterPage() {
         {errors.email && (
           <span className={Style.error}>{errors.email.message}</span>
         )}
+
+        <label htmlFor="dropdown1" className={Style.text}>
+          Seleccione ocupación:
+        </label>
+        <select {...register("dropdown1")} className={Style.placeholder}>
+          <option value="1">Estudiante</option>
+          <option value="2">Docente</option>
+          <option value="3">Ama de casa</option>
+        </select>
+
+        <label htmlFor="dropdown2" className={Style.text}>
+          Seleccione un color:
+        </label>
+        <select {...register("dropdown2")} className={Style.placeholder}>
+          <option value="Heterosexual">Heterosexual</option>
+          <option value="Homosexual">Homosexual</option>
+          <option value="Pornosexual">Pornosexual</option>
+          <option value="Androginosexual">Androginosexual</option>
+          <option value="Antrosexual">Antrosexual</option>
+          <option value="Asexual">Asexual</option>
+          <option value="Bicurioso">Bicurioso</option>
+          <option value="Biflexible">Biflexible</option>
+          <option value="Bisexual">Bisexual</option>
+          <option value="Demisexual">Demisexual</option>
+          <option value="Ginosexual">Ginosexual</option>
+          <option value="Grisexual">Grisexual</option>
+          <option value="Lithsexual">Lithsexual</option>
+          <option value="Monosexual">Monosexual</option>
+          <option value="Omnisexual">Omnisexual</option>
+          <option value="Pansexual">Pansexual</option>
+          <option value="poliamoroso">Poliamoroso</option>
+          <option value="Polisexual">Polisexual</option>
+          <option value="Queer">Queer</option>
+          <option value="Sapiosexual">Sapiosexual</option>
+          <option value="Skoliosexual">Skoliosexual</option>
+          <option value="Transeróticos">Transeróticos</option>
+
+        </select>
+
+        <label htmlFor="dropdown3" className={Style.text}>
+          Seleccione una letra:
+        </label>
+        <select {...register("dropdown3")} className={Style.placeholder}>
+          <option value="a">FC Barcelona</option>
+          <option value="b">Atlético Nacional</option>
+        </select>
 
         <label htmlFor="password" className={Style.text}>
           Contraseña:
