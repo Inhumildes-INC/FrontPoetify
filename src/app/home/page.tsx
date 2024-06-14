@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Style from "./Home.module.sass"
+import Link from 'next/link'
 
 interface Respuesta {
   error: boolean,
@@ -21,12 +22,15 @@ const Categoria = (props: any) => {
   const [data, setData] = useState<Respuesta>()
   const [loading, setLoading] = useState(true)
 
+
   const fetchData = async () => {
     const response = await fetch('http://localhost:4000/poemas/categoria/', { cache: 'no-cache' });
 
     const jsonData = await response.json();
+    console.log(jsonData);
+
     return jsonData;
-    
+  
     
   };
 
@@ -41,6 +45,10 @@ const Categoria = (props: any) => {
 
   if (loading) return (<h1>Cargando</h1>)
 
+
+
+    
+
   {
     return (
       <div className=''>
@@ -54,8 +62,29 @@ const Categoria = (props: any) => {
             <span className={Style.homeText}>{data?.body.poema}</span>
         </div>
         <div >
+         
           <button>crear nuevo</button>
-          <button> guardar</button>
+
+
+          <button className={Style.button} onClick={()=>{
+      const fetchData = async () => {
+        const response = await fetch('http://localhost:4000/poemas/guardar', { cache: 'no-cache', method: "POST",headers: {
+          'Content-Type': 'application/json'
+        },  body: JSON.stringify({"poema": data?.body?.poema, "sonetosUsados": data?.body?.sonetosUsados}) });
+    
+        const jsonData = await response.json();
+        console.log(jsonData)
+      };
+      fetchData(); 
+
+      
+
+
+      }}>
+            guardar</button>
+
+        
+
         </div>
       </div>
       </div>
@@ -64,3 +93,6 @@ const Categoria = (props: any) => {
 
 }
 export default Categoria
+
+
+

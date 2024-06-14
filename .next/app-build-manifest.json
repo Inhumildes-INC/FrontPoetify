@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/home/page": [
+    "/update/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/home/page.css",
-      "static/chunks/app/home/page.js"
+      "static/css/app/update/page.css",
+      "static/chunks/app/update/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -12,23 +12,23 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/dashboard/page": [
+    "/home/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/dashboard/page.css",
-      "static/chunks/app/dashboard/page.js"
+      "static/css/app/home/page.css",
+      "static/chunks/app/home/page.js"
     ],
-    "/perfil/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/perfil/page.css",
-      "static/chunks/app/perfil/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
-    "/update/page": [
+    "/categorias/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/update/page.css",
-      "static/chunks/app/update/page.js"
+      "static/css/app/categorias/page.css",
+      "static/chunks/app/categorias/page.js"
     ]
   }
 }

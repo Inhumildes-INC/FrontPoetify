@@ -1,11 +1,14 @@
 "use client"
 import React from 'react'
 import style from '../perfil/perfil.module.sass'
+import TextInputPopup from '../../components/TextInputPopup';
+
+
 
 function ButtonCrearBiblioteca(email: any) {
 
-console.log(email);
-console.log(JSON.stringify({"identificador": email.email}));
+
+
   return (
     
       <button className={style.button} onClick={()=>{

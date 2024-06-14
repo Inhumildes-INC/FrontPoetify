@@ -16,15 +16,15 @@ function UpdatePage() {
     if (data.password !== data.confirmPassword) {
       return alert("Passwords do not match");
     }
-    const res = await fetch("http://localhost:4000/usuario/agregar", {
+    const res = await fetch("http://localhost:4000/usuario/actualizar", {
       
-      method: "POST",
+      method: "put",
       body: JSON.stringify({
         nombre: data.nombre,
         email: data.email,
         password: data.password,
-      id_ocupacion: 2,
-      id_orientacion: 3 
+      id_ocupacion: 3,
+      id_orientacion: 5 
       }),
       headers: {
         "Content-Type": "application/json",
