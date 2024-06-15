@@ -1,16 +1,16 @@
 {
   "pages": {
+    "/auth/register/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/auth/register/page.css",
+      "static/chunks/app/auth/register/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
-    ],
-    "/categorias/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/categorias/page.css",
-      "static/chunks/app/categorias/page.js"
     ],
     "/page": [
       "static/chunks/webpack.js",
@@ -18,29 +18,17 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
-    "/categorias/[categoria]/page": [
+    "/categorias/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/categorias/[categoria]/page.css",
-      "static/chunks/app/categorias/[categoria]/page.js"
-    ],
-    "/biblioteca/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/biblioteca/page.css",
-      "static/chunks/app/biblioteca/page.js"
+      "static/css/app/categorias/page.css",
+      "static/chunks/app/categorias/page.js"
     ],
     "/perfil/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/perfil/page.css",
       "static/chunks/app/perfil/page.js"
-    ],
-    "/auth/register/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/auth/register/page.css",
-      "static/chunks/app/auth/register/page.js"
     ]
   }
 }

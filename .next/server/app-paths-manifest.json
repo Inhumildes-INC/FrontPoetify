@@ -1,7 +1,6 @@
 {
-  "/categorias/[categoria]/page": "app/categorias/[categoria]/page.js",
-  "/biblioteca/page": "app/biblioteca/page.js",
+  "/auth/register/page": "app/auth/register/page.js",
   "/page": "app/page.js",
-  "/perfil/page": "app/perfil/page.js",
-  "/auth/register/page": "app/auth/register/page.js"
+  "/categorias/page": "app/categorias/page.js",
+  "/perfil/page": "app/perfil/page.js"
 }

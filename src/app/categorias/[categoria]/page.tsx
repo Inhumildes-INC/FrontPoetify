@@ -104,7 +104,7 @@ const ButtonGuardarEnBiblioteca: React.FC = (props: any) => {
             body: JSON.stringify({ 
               "nombre": customField, 
               "id_poema": poemData?.body?.poemaId,
-            "id_biblioteca": "12" })
+            "id_biblioteca": "13" })
           });
     
           if (response.ok) {
