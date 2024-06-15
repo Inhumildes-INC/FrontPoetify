@@ -21,8 +21,9 @@ function RegisterPage() {
         nombre: data.nombre,
         email: data.email,
         password: data.password,
-        id_ocupacion: 2,
-        id_orientacion: 3
+        id_ocupacion: 1,
+        id_orientacion: 5,
+        id_equipo: 2
       }),
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +43,7 @@ function RegisterPage() {
         <h1 className={Style.element}>Registrate</h1>
 
         <label htmlFor="nombre" className={Style.text}>
-          Nombre de usuario:
+          Nombre de usuario*:
         </label>
         <input
           type="text"
@@ -62,7 +63,7 @@ function RegisterPage() {
         )}
 
         <label htmlFor="email" className={Style.text}>
-          Correo electrónico:
+          Correo electrónico*:
         </label>
         <input
           type="email"
@@ -80,16 +81,17 @@ function RegisterPage() {
         )}
 
         <label htmlFor="dropdown1" className={Style.text}>
-          Seleccione ocupación:
+          ¿a qué te dedicas?*:
         </label>
         <select {...register("dropdown1")} className={Style.placeholder}>
           <option value="1">Estudiante</option>
           <option value="2">Docente</option>
           <option value="3">Ama de casa</option>
+
         </select>
 
         <label htmlFor="dropdown2" className={Style.text}>
-          Seleccione un color:
+          Selecciona tu orientación sexual*:
         </label>
         <select {...register("dropdown2")} className={Style.placeholder}>
           <option value="Heterosexual">Heterosexual</option>
@@ -118,15 +120,44 @@ function RegisterPage() {
         </select>
 
         <label htmlFor="dropdown3" className={Style.text}>
-          Seleccione una letra:
+          Selecciona tu equipo de futbol favorito*:
         </label>
         <select {...register("dropdown3")} className={Style.placeholder}>
           <option value="a">FC Barcelona</option>
           <option value="b">Atlético Nacional</option>
         </select>
 
+        <label htmlFor="telefomo1" className={Style.text}>
+          ingresa tu numero de contacto*:
+        </label>
+        <input
+          type="text"
+          {...register("telefono1", {
+            required: {
+              value: true,
+              message: "queremos poder contactarte",
+            },
+          })}
+          className={Style.placeholder}
+          placeholder="3124560067"
+        />
+        <label htmlFor="telefono2" className={Style.text}>
+          otro telefono, por si algo:
+        </label>
+        <input
+          type="text"
+          {...register("telefono2", {
+            required: {
+              value: true,
+              message: "",
+            },
+          })}
+          className={Style.placeholder}
+          placeholder="este no es obligatorio"
+        />
+
         <label htmlFor="password" className={Style.text}>
-          Contraseña:
+          Contraseña*:
         </label>
         <input
           type="password"
@@ -146,7 +177,7 @@ function RegisterPage() {
         )}
 
         <label htmlFor="confirmPassword" className={Style.text}>
-          Confirmar contraseña:
+          Confirmar contraseña*:
         </label>
         <input
           type="password"
